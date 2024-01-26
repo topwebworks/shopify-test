@@ -1,12 +1,14 @@
 {
-  "name": "Template 404",
   "sections": {
     "template": {
-      "type": "template_404"
+      "type": "template_404",
+      "settings": {
+        "title": "404",
+        "subtext_html": "<p>Oops, the page you were looking for could not be found.<\/p>"
+      }
     }
   },
   "order": [
     "template"
   ]
-
 }
