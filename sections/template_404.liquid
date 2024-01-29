@@ -1,9 +1,24 @@
-<h1>{{ section.settings.title }}</h1>
-<p>{{ section.settings.subtext_html }}</p>
+<div class="max-w-md">
+  <div class="text-5xl font-bold">{{ section.settings.title }}</div>
+  <div class="my-2">
+    <p class="text-base leading-normal md:text-lg">{{ section.settings.subtext_html }}</p>
+  </div>
+  <div class="my-6">
+    {% if section.settings.button_url == blank %}
+      {% assign shop.url = shop.secure_url %}
+    {% else %}
+      {% assign shop.url = section.settings.button_url %}
+    {% endif %}
+    <a href="{{ shop_url }}" class="px-4 py-2 font-medium text-center text-white bg-green-600 rounded-md shadow hover:bg-green-800">{{ section.settings.button_label }}</a>
+  </div>
+</div>
+
 
 {% schema %}
   {
     "name": "Template 404",
+    "tag": "section",
+    "class": "section-404 flex flex-col justify-center items-center text-center py-7 h-screen",
     "settings": [
       {
         "type": "text",
@@ -15,6 +30,15 @@
         "id": "subtext_html",
         "label": "404 Subtext",
         "default": "<p>Oops! The page you were looking for could not be found.</p>"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Back to Home"
+      }, {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
       }
     ]
   }
