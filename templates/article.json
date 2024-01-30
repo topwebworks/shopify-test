@@ -1,11 +1,9 @@
 {
-  "name": "Template Name",
-  "layout": "",
   "sections": {
-    "": {
-      "type": "",
+    "template": {
+      "type": "template_article",
       "settings": {
-        "type": "template_article"
+        "title": "Article Title"
       }
     }
   },
