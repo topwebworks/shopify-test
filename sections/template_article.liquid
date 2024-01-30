@@ -4,4 +4,6 @@
 
 <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
 
-<img src="{{ article.image |  image_url: 'large' }}" alt="{{ article.image.alt }}">
+<img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.image.alt }}" />
+
+<div class="">{{ article.content }}</div>
