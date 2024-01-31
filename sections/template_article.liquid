@@ -10,10 +10,11 @@
 
 
 <img
-  src="{{ article.image.src | image_url: 'large' }}"
   alt="{{ article.image.alt }}"
-  width="800"
-  height="auto" />
+  src="{{ article.image | image_url: width: 960 }}"
+  width="{{ article.image.width }}"
+  height="{{ article.image.height }}"
+  loading="lazy">
 
 <div class="">{{ article.content }}</div>
 
@@ -24,13 +25,13 @@
       {
         "type": "checkbox",
         "id": "enable_author",
-        "label": "Display Author Name",
-        "default": true
+        "default": true,
+        "label": "Display Author Name"
       }, {
         "type": "checkbox",
         "id": "enable_publish_date",
-        "label": "Display Published Date",
-        "default": true
+        "default": true,
+        "label": "Display Published Date"
       }
     ]
   }
