@@ -1,9 +1,37 @@
 <h1>{{ article.title }}</h1>
 
-<small>{{ article.author }}</small>
+{% if settings.enable_author %}
+  <small>{{ article.author }}</small>
+{% endif %}
 
-<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
+{% if settings.enable_publish_date %}
+  <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
+{% endif %}
 
-<img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.image.alt }}" />
+
+<img
+  src="{{ article.image.src | image_url: 'large' }}"
+  alt="{{ article.image.alt }}"
+  width="800px"
+  height="auto" />
 
 <div class="">{{ article.content }}</div>
+
+{% schema %}
+  {
+    "name": "Template Article",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_author",
+        "label": "Display Author Name",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "enable_publish_date",
+        "label": "Display Published Date",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}
