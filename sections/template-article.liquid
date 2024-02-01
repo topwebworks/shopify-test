@@ -12,11 +12,21 @@
       {% endif %}
     {% when 'featured_image' %}
       <img
-        alt="{{ article.image.alt }}"
-        src="{{ article.image | image_url: width: 960 }}"
-        width="{{ article.image.width }}"
-        height="{{ article.image.height }}"
-        loading="lazy">
+        class="w-full max-w-xl mx-auto mb-8"
+        alt="
+        {{ article.image.alt }}
+        "
+        src="
+        {{ article.image | image_url: width: 960 }}
+        "
+        width="
+        {{ article.image.width }}
+        "
+        height="
+        {{ article.image.height }}
+        "
+        loading="
+        lazy">
     {% when 'article_content' %}
       <div class="">{{ article.content }}</div>
       {% else %}
