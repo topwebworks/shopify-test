@@ -1,7 +1,7 @@
 {
   "sections": {
     "template": {
-      "type": "template_404",
+      "type": "template-404",
       "settings": {
         "title": "404",
         "subtext_html": "<p>Oops, the page you were looking for could not be found.<\/p>"
